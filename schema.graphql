@@ -1,0 +1,41 @@
+type Contract @entity {
+  id: ID!
+  address: Bytes!
+}
+
+type Count @entity {
+  id: ID!
+  value: BigInt!
+}
+
+type Gauge @entity {
+  id: ID!
+  user: Bytes!
+  gauge: Bytes!
+  originalBalance: BigInt!
+  originalSupply: BigInt!
+  workingBalance: BigInt!
+  workingSupply: BigInt!
+  timestamp: BigInt!
+  block: BigInt!
+  transaction: Bytes!
+}
+
+# TODO
+#type GaugeInfo @entity {
+#  id: ID!
+#  workingSupply: BigInt!
+#  gaugeRelativeWeight: BigInt!
+#}
+
+type Deposit @entity {
+  id: ID!
+  provider: Bytes!
+  value: BigInt!
+}
+
+type Withdraw @entity {
+  id: ID!
+  provider: Bytes!
+  value: BigInt!
+}

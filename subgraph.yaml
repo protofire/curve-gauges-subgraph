@@ -1,0 +1,375 @@
+specVersion: 0.0.2
+
+description: Curve Finance - Gauges Data
+repository: https://github.com/protofire/curve-gauges-subgraph
+
+schema:
+  file: ./schema.graphql
+
+templates:
+  - name: LiquidityGauge
+    kind: ethereum/contract
+    network: mainnet
+    source:
+      abi: LiquidityGauge
+    mapping: &liquidity_gauge_mapping
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      file: ./src/mappings.ts
+      abis:
+        - name: LiquidityGauge
+          file: ./abis/LiquidityGauge.json
+      entities:
+        - Contract
+        - Count
+        - Deposit
+        - Gauge
+        - Withdraw
+      eventHandlers:
+        - event: UpdateLiquidityLimit(address,uint256,uint256,uint256,uint256)
+          handler: handleUpdateLiquidityLimit
+        - event: Deposit(indexed address,uint256)
+          handler: handleDeposit
+        - event: Withdraw(indexed address,uint256)
+          handler: handleWithdraw
+
+dataSources:
+  - name: GaugeController
+    kind: ethereum/contract
+    network: mainnet
+    source:
+      abi: GaugeController
+      address: '0x2f50d538606fa9edd2b11e2446beb18c9d5846bb'
+      startBlock: 10647875
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      file: ./src/mappings.ts
+      abis:
+        - name: GaugeController
+          file: ./abis/GaugeController.json
+      entities:
+        - Contract
+        - Count
+      eventHandlers:
+        - event: ApplyOwnership(address)
+          handler: handleTransferOwnership
+        - event: NewGauge(address,int128,uint256)
+          handler: handleNewGauge
+
+  - name: LiquidityGauge/Compound
+    kind: ethereum/contract
+    network: mainnet
+    source:
+      abi: LiquidityGauge
+      address: '0x7ca5b0a2910b33e9759dc7ddb0413949071d7575'
+      startBlock: 10647894
+    mapping: *liquidity_gauge_mapping
+
+  - name: LiquidityGauge/USDT
+    kind: ethereum/contract
+    network: mainnet
+    source:
+      abi: LiquidityGauge
+      address: '0xbc89cd85491d81c6ad2954e6d0362ee29fca8f53'
+      startBlock: 10647902
+    mapping: *liquidity_gauge_mapping
+
+  - name: LiquidityGauge/PAX
+    kind: ethereum/contract
+    network: mainnet
+    source:
+      abi: LiquidityGauge
+      address: '0x64e3c23bfc40722d3b649844055f1d51c1ac041d'
+      startBlock: 10647922
+    mapping: *liquidity_gauge_mapping
+
+  - name: LiquidityGauge/Y
+    kind: ethereum/contract
+    network: mainnet
+    source:
+      abi: LiquidityGauge
+      address: '0xfa712ee4788c042e2b7bb55e6cb8ec569c4530c1'
+      startBlock: 10647909
+    mapping: *liquidity_gauge_mapping
+
+  - name: LiquidityGauge/BUSD
+    kind: ethereum/contract
+    network: mainnet
+    source:
+      abi: LiquidityGauge
+      address: '0x69fb7c45726cfe2badee8317005d3f94be838840'
+      startBlock: 10647916
+    mapping: *liquidity_gauge_mapping
+
+  - name: LiquidityGauge/sUSD
+    kind: ethereum/contract
+    network: mainnet
+    source:
+      abi: LiquidityGauge
+      address: '0xa90996896660decc6e997655e065b23788857849'
+      startBlock: 10647937
+    mapping: *liquidity_gauge_mapping
+
+  - name: LiquidityGauge/ren
+    kind: ethereum/contract
+    network: mainnet
+    source:
+      abi: LiquidityGauge
+      address: '0xb1f2cdec61db658f091671f5f199635aef202cac'
+      startBlock: 10647928
+    mapping: *liquidity_gauge_mapping
+
+  - name: LiquidityGauge/sbtc
+    kind: ethereum/contract
+    network: mainnet
+    source:
+      abi: LiquidityGauge
+      address: '0x705350c4bcd35c9441419ddd5d2f097d7a55410f'
+      startBlock: 10647943
+    mapping: *liquidity_gauge_mapping
+
+  - name: LiquidityGauge/hbtc
+    kind: ethereum/contract
+    network: mainnet
+    source:
+      abi: LiquidityGauge
+      address: '0x4c18e409dc8619bfb6a1cb56d114c3f592e0ae79'
+      startBlock: 10732329
+    mapping: *liquidity_gauge_mapping
+
+  - name: LiquidityGauge/3pool
+    kind: ethereum/contract
+    network: mainnet
+    source:
+      abi: LiquidityGauge
+      address: '0xbfcf63294ad7105dea65aa58f8ae5be2d9d0952a'
+      startBlock: 10809479
+    mapping: *liquidity_gauge_mapping
+
+  - name: LiquidityGauge/gusd
+    kind: ethereum/contract
+    network: mainnet
+    source:
+      abi: LiquidityGauge
+      address: '0xc5cfada84e902ad92dd40194f0883ad49639b023'
+      startBlock: 11009833
+    mapping: *liquidity_gauge_mapping
+
+  - name: LiquidityGauge/husd
+    kind: ethereum/contract
+    network: mainnet
+    source:
+      abi: LiquidityGauge
+      address: '0x2db0e83599a91b508ac268a6197b8b14f5e72840'
+      startBlock: 11010077
+    mapping: *liquidity_gauge_mapping
+
+  - name: LiquidityGauge/usdk
+    kind: ethereum/contract
+    network: mainnet
+    source:
+      abi: LiquidityGauge
+      address: '0xc2b1df84112619d190193e48148000e3990bf627'
+      startBlock: 11010308
+    mapping: *liquidity_gauge_mapping
+
+  - name: LiquidityGauge/usdn
+    kind: ethereum/contract
+    network: mainnet
+    source:
+      abi: LiquidityGauge
+      address: '0xf98450b5602fa59cc66e1379dffb6fddc724cfc4'
+      startBlock: 11010522
+    mapping: *liquidity_gauge_mapping
+
+  - name: LiquidityGauge/musd
+    kind: ethereum/contract
+    network: mainnet
+    source:
+      abi: LiquidityGauge
+      address: '0x5f626c30ec1215f4edcc9982265e8b1f411d1352'
+      startBlock: 11055948
+    mapping: *liquidity_gauge_mapping
+
+  - name: LiquidityGauge/rsv
+    kind: ethereum/contract
+    network: mainnet
+    source:
+      abi: LiquidityGauge
+      address: '0x4dc4a289a8e33600d8bd4cf5f6313e43a37adec7'
+      startBlock: 11192694
+    mapping: *liquidity_gauge_mapping
+
+  - name: LiquidityGauge/tbtc
+    kind: ethereum/contract
+    network: mainnet
+    source:
+      abi: LiquidityGauge
+      address: '0x6828bcf74279ee32f2723ec536c22c51eed383c6'
+      startBlock: 11100719
+    mapping: *liquidity_gauge_mapping
+
+  - name: LiquidityGauge/dusd
+    kind: ethereum/contract
+    network: mainnet
+    source:
+      abi: LiquidityGauge
+      address: '0xaea6c312f4b3e04d752946d329693f7293bc2e6d'
+      startBlock: 11192930
+    mapping: *liquidity_gauge_mapping
+
+  - name: LiquidityGauge/pbtc
+    kind: ethereum/contract
+    network: mainnet
+    source:
+      abi: LiquidityGauge
+      address: '0xd7d147c6bb90a718c3de8c0568f9b560c79fa416'
+      startBlock: 11454070
+    mapping: *liquidity_gauge_mapping
+
+  - name: LiquidityGauge/bbtc
+    kind: ethereum/contract
+    network: mainnet
+    source:
+      abi: LiquidityGauge
+      address: '0xdfc7adfa664b08767b735de28f9e84cd30492aee'
+      startBlock: 11458438
+    mapping: *liquidity_gauge_mapping
+
+  - name: LiquidityGauge/obtc
+    kind: ethereum/contract
+    network: mainnet
+    source:
+      abi: LiquidityGauge
+      address: '0x11137b10c210b579405c21a07489e28f3c040ab1'
+      startBlock: 11459240
+    mapping: *liquidity_gauge_mapping
+
+  - name: LiquidityGauge/ust
+    kind: ethereum/contract
+    network: mainnet
+    source:
+      abi: LiquidityGauge
+      address: '0x3b7020743bc2a4ca9eaf9d0722d42e20d6935855'
+      startBlock: 11466634
+    mapping: *liquidity_gauge_mapping
+
+  - name: LiquidityGauge/eurs
+    kind: ethereum/contract
+    network: mainnet
+    source:
+      abi: LiquidityGauge
+      address: '0x90bb609649e0451e5ad952683d64bd2d1f245840'
+      startBlock: 11466964
+    mapping: *liquidity_gauge_mapping
+
+  - name: LiquidityGauge/seth
+    kind: ethereum/contract
+    network: mainnet
+    source:
+      abi: LiquidityGauge
+      address: '0x3c0ffff15ea30c35d7a85b85c0782d6c94e1d238'
+      startBlock: 11491980
+    mapping: *liquidity_gauge_mapping
+
+  - name: LiquidityGauge/aave
+    kind: ethereum/contract
+    network: mainnet
+    source:
+      abi: LiquidityGauge
+      address: '0xd662908ada2ea1916b3318327a97eb18ad588b5d'
+      startBlock: 11497310
+    mapping: *liquidity_gauge_mapping
+
+  - name: LiquidityGauge/steth
+    kind: ethereum/contract
+    network: mainnet
+    source:
+      abi: LiquidityGauge
+      address: '0x182b723a58739a9c974cfdb385ceadb237453c28'
+      startBlock: 11592551
+    mapping: *liquidity_gauge_mapping
+
+  - name: LiquidityGauge/saave
+    kind: ethereum/contract
+    network: mainnet
+    source:
+      abi: LiquidityGauge
+      address: '0x462253b8f74b72304c145db0e4eebd326b22ca39'
+      startBlock: 11773020
+    mapping: *liquidity_gauge_mapping
+
+  - name: LiquidityGauge/ankreth
+    kind: ethereum/contract
+    network: mainnet
+    source:
+      abi: LiquidityGauge
+      address: '0x6d10ed2cf043e6fcf51a0e7b4c2af3fa06695707'
+      startBlock: 11777236
+    mapping: *liquidity_gauge_mapping
+
+  - name: LiquidityGauge/usdp
+    kind: ethereum/contract
+    network: mainnet
+    source:
+      abi: LiquidityGauge
+      address: '0x055be5ddb7a925bfef3417fc157f53ca77ca7222'
+      startBlock: 11922072
+    mapping: *liquidity_gauge_mapping
+
+  - name: LiquidityGauge/ironbank
+    kind: ethereum/contract
+    network: mainnet
+    source:
+      abi: LiquidityGauge
+      address: '0xf5194c3325202f456c95c1cf0ca36f8475c1949f'
+      startBlock: 11831163
+    mapping: *liquidity_gauge_mapping
+
+  - name: LiquidityGauge/link
+    kind: ethereum/contract
+    network: mainnet
+    source:
+      abi: LiquidityGauge
+      address: '0xfd4d8a17df4c27c1dd245d153ccf4499e806c87d'
+      startBlock: 11875287
+    mapping: *liquidity_gauge_mapping
+
+  - name: LiquidityGauge/tusd
+    kind: ethereum/contract
+    network: mainnet
+    source:
+      abi: LiquidityGauge
+      address: '0x359fd5d6417ae3d8d6497d9b2e7a890798262ba4'
+      startBlock: 12010264
+    mapping: *liquidity_gauge_mapping
+
+  - name: LiquidityGauge/frax
+    kind: ethereum/contract
+    network: mainnet
+    source:
+      abi: LiquidityGauge
+      address: '0x72e158d38dbd50a483501c24f792bdaaa3e7d55c'
+      startBlock: 12282687
+    mapping: *liquidity_gauge_mapping
+
+  - name: LiquidityGauge/lusd
+    kind: ethereum/contract
+    network: mainnet
+    source:
+      abi: LiquidityGauge
+      address: '0x9b8519a9a00100720ccdc8a120fbed319ca47a14'
+      startBlock: 12282587
+    mapping: *liquidity_gauge_mapping
+
+  - name: LiquidityGauge/busdv2
+    kind: ethereum/contract
+    network: mainnet
+    source:
+      abi: LiquidityGauge
+      address: '0xd4b22fedca85e684919955061fdf353b9d38389b'
+      startBlock: 12240402
+    mapping: *liquidity_gauge_mapping
