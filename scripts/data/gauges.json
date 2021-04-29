@@ -1,0 +1,182 @@
+[
+  {
+    "id": "compound",
+    "name": "Compound",
+    "address": "0x7ca5b0a2910b33e9759dc7ddb0413949071d7575"
+  },
+  {
+    "id": "usdt",
+    "name": "USDT",
+    "address": "0xbc89cd85491d81c6ad2954e6d0362ee29fca8f53"
+  },
+  {
+    "id": "pax",
+    "name": "PAX",
+    "address": "0x64e3c23bfc40722d3b649844055f1d51c1ac041d"
+  },
+  {
+    "id": "iearn",
+    "name": "Y",
+    "address": "0xfa712ee4788c042e2b7bb55e6cb8ec569c4530c1"
+  },
+  {
+    "id": "busd",
+    "name": "BUSD",
+    "address": "0x69fb7c45726cfe2badee8317005d3f94be838840"
+  },
+  {
+    "id": "susdv2",
+    "name": "sUSD",
+    "address": "0xa90996896660decc6e997655e065b23788857849"
+  },
+  {
+    "id": "ren",
+    "name": "ren",
+    "address": "0xb1f2cdec61db658f091671f5f199635aef202cac"
+  },
+  {
+    "id": "sbtc",
+    "name": "sbtc",
+    "address": "0x705350c4bcd35c9441419ddd5d2f097d7a55410f"
+  },
+  {
+    "id": "hbtc",
+    "name": "hbtc",
+    "address": "0x4c18e409dc8619bfb6a1cb56d114c3f592e0ae79"
+  },
+  {
+    "id": "3pool",
+    "name": "3pool",
+    "address": "0xbfcf63294ad7105dea65aa58f8ae5be2d9d0952a"
+  },
+  {
+    "id": "gusd",
+    "name": "gusd",
+    "address": "0xc5cfada84e902ad92dd40194f0883ad49639b023"
+  },
+  {
+    "id": "husd",
+    "name": "husd",
+    "address": "0x2db0e83599a91b508ac268a6197b8b14f5e72840"
+  },
+  {
+    "id": "usdk",
+    "name": "usdk",
+    "address": "0xc2b1df84112619d190193e48148000e3990bf627"
+  },
+  {
+    "id": "usdn",
+    "name": "usdn",
+    "address": "0xf98450b5602fa59cc66e1379dffb6fddc724cfc4"
+  },
+  {
+    "id": "linkusd",
+    "name": "linkusd",
+    "address": null
+  },
+  {
+    "id": "musd",
+    "name": "musd",
+    "address": "0x5f626c30ec1215f4edcc9982265e8b1f411d1352"
+  },
+  {
+    "id": "rsv",
+    "name": "rsv",
+    "address": "0x4dc4a289a8e33600d8bd4cf5f6313e43a37adec7"
+  },
+  {
+    "id": "tbtc",
+    "name": "tbtc",
+    "address": "0x6828bcf74279ee32f2723ec536c22c51eed383c6"
+  },
+  {
+    "id": "dusd",
+    "name": "dusd",
+    "address": "0xaea6c312f4b3e04d752946d329693f7293bc2e6d"
+  },
+  {
+    "id": "pbtc",
+    "name": "pbtc",
+    "address": "0xd7d147c6bb90a718c3de8c0568f9b560c79fa416"
+  },
+  {
+    "id": "bbtc",
+    "name": "bbtc",
+    "address": "0xdfc7adfa664b08767b735de28f9e84cd30492aee"
+  },
+  {
+    "id": "obtc",
+    "name": "obtc",
+    "address": "0x11137b10c210b579405c21a07489e28f3c040ab1"
+  },
+  {
+    "id": "ust",
+    "name": "ust",
+    "address": "0x3b7020743bc2a4ca9eaf9d0722d42e20d6935855"
+  },
+  {
+    "id": "eurs",
+    "name": "eurs",
+    "address": "0x90bb609649e0451e5ad952683d64bd2d1f245840"
+  },
+  {
+    "id": "seth",
+    "name": "seth",
+    "address": "0x3c0ffff15ea30c35d7a85b85c0782d6c94e1d238"
+  },
+  {
+    "id": "aave",
+    "name": "aave",
+    "address": "0xd662908ada2ea1916b3318327a97eb18ad588b5d"
+  },
+  {
+    "id": "steth",
+    "name": "steth",
+    "address": "0x182b723a58739a9c974cfdb385ceadb237453c28"
+  },
+  {
+    "id": "saave",
+    "name": "saave",
+    "address": "0x462253b8f74b72304c145db0e4eebd326b22ca39"
+  },
+  {
+    "id": "ankreth",
+    "name": "ankreth",
+    "address": "0x6d10ed2cf043e6fcf51a0e7b4c2af3fa06695707"
+  },
+  {
+    "id": "usdp",
+    "name": "usdp",
+    "address": "0x055be5ddb7a925bfef3417fc157f53ca77ca7222"
+  },
+  {
+    "id": "ib",
+    "name": "ironbank",
+    "address": "0xf5194c3325202f456c95c1cf0ca36f8475c1949f"
+  },
+  {
+    "id": "link",
+    "name": "link",
+    "address": "0xfd4d8a17df4c27c1dd245d153ccf4499e806c87d"
+  },
+  {
+    "id": "tusd",
+    "name": "tusd",
+    "address": "0x359fd5d6417ae3d8d6497d9b2e7a890798262ba4"
+  },
+  {
+    "id": "frax",
+    "name": "frax",
+    "address": "0x72e158d38dbd50a483501c24f792bdaaa3e7d55c"
+  },
+  {
+    "id": "lusd",
+    "name": "lusd",
+    "address": "0x9b8519a9a00100720ccdc8a120fbed319ca47a14"
+  },
+  {
+    "id": "busdv2",
+    "name": "busdv2",
+    "address": "0xd4b22fedca85e684919955061fdf353b9d38389b"
+  }
+]
